@@ -7,11 +7,31 @@ export default [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com', '*.cloudinary.com', 'https://*.cloudinary.com'],
-          'media-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com', '*.cloudinary.com', 'https://*.cloudinary.com'],
+          'connect-src': ["'self'", 'https:', 'ws:', 'wss:'],
+          'img-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            'dl.airtable.com',
+            'res.cloudinary.com',
+            '*.cloudinary.com',
+            'https://*.cloudinary.com'
+          ],
+          'media-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            'dl.airtable.com',
+            'res.cloudinary.com',
+            '*.cloudinary.com',
+            'https://*.cloudinary.com'
+          ],
+          'frame-src': ["'self'", 'player.vimeo.com', 'youtube.com', 'www.youtube.com'],
           upgradeInsecureRequests: null,
         },
+      },
+      frameguard: {
+        action: 'sameorigin'
       },
     },
   },
