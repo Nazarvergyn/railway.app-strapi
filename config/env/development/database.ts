@@ -1,9 +1,10 @@
 export default ({ env }) => ({
     connection: {
         client: 'postgres',
-        connection: {
-            connectionString: env('DATABASE_URL')
-        },
-        acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+        connection: env('DATABASE_URL'),
+        pool: {
+            min: 0,
+            max: 5
+        }
     }
 });
